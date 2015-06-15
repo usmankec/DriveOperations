@@ -1,0 +1,101 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Drive Operation Framework" parallel="methods"
+	verbose="1" thread-count="3">
+	<listeners>
+		<!-- <listener class-name="com.seleniumtests.reporter.SeleniumTestsReporter" /> -->
+		<!--<listener class-name="com.seleniumtests.core.TestRetryListener" />-->
+	</listeners>
+
+	<parameter name="appURL" value="https://onedrive.live.com/?gologin=1"/>
+	<parameter name="saasApp" value="ONEDRIVE"/>
+	<parameter name="browser" value="*firefox" />  <!--"*firefox, *chrome, *iexplore"-->
+	<parameter name="runMode" value="LOCAL" /> <!--LOCAL or ExistingGrid or SauceLab-->
+	<!-- <parameter name="runMode" value="ExistingGrid" /> --> <!--LOCAL or ExistingGrid -->
+    <!--if parameter runMode is set to ExistingGrid then parameter webDriverGrid should have value set to system running grid
+
+    To start grid on a machine use following command -
+    java -jar selenium-server-standalone-<version>.jar -role hub
+
+    To execute tests on firefox using selenium grid, start node running firefox as -
+    java -jar selenium-server-standalone-<version>.jar -role node  -hub http://localhost:4444/grid/register
+    -browser  browserName=firefox platform=WINDOWS, ensureCleanSession=true, javascriptEnabled=true, acceptSslCerts=true,
+    ignoreProtectedModeSettings=true, ignoreZoomSetting=true, takesScreenshot=true
+
+    To execute tests on chrome using selenium grid, start node running chrome as -
+    java -jar selenium-server-standalone-<version>.jar -role node  -hub http://localhost:4444/grid/register -browser  browserName
+    =chrome platform=WINDOWS, ensureCleanSession=true, javascriptEnabled=true, acceptSslCerts=true, ignoreProtectedModeSettings=true,
+    ignoreZoomSetting=true, takesScreenshot=true -Dwebdriver.chrome.driver="<path to chrome driver exe on node machine>\chromedriver.exe"
+
+    To execute tests on internet explorer using selenium grid, start node running internet explorer as -
+    java -jar selenium-server-standalone-<version>.jar -role node  -hub http://localhost:4444/grid/register -browser  browserName
+    ="internet explorer" platform=WINDOWS, ensureCleanSession=true, javascriptEnabled=true, acceptSslCerts=true, ignoreProtectedModeSettings=true,
+    ignoreZoomSetting=true, takesScreenshot=true -Dwebdriver.ie.driver="<path to internet explorer driver on node machine>\IEDriverServer.exe"
+    -->
+
+	<parameter name="webDriverGrid" value="http://localhost:4444/wd/hub" />
+	<!-- <parameter name="platform" value="VISTA" />
+	<parameter name="browserVersion" value="41.0" /> -->
+	<!-- <parameter name="webDriverGrid" value="http://usmankec:04128b85-c2d9-4d5e-bf2a-2d223cc56c38@ondemand.saucelabs.com:80/wd/hub" /> -->
+	<parameter name="webSessionTimeOut" value="120000" />
+	<parameter name="openReportInBrowser" value="*firefox" />
+	<parameter name="maxConcurrentWebSessions" value="5" />
+	<parameter name="captureSnapshot" value="true" />
+	<parameter name="softAssertEnabled" value="true" />
+    <parameter name="useFirefoxDefaultProfile" value="false"/>
+
+	
+<!-- 
+    <test name="One drive Operatins" parallel="true">
+        <parameter name="browser" value="*chrome" />
+        <groups>
+            <run>
+                <include name="oneDrive" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.elastica.tests.OneDriveOperations" />
+        </classes>
+    </test> -->
+
+     <test name="Box drive Operatins" parallel="true">
+        <parameter name="browser" value="*chrome" />
+        	<parameter name="saasApp" value="BOX"/>
+        <groups>
+            <run>
+                <include name="oneDrive" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.elastica.tests.BoxDriveOperations" />
+        </classes>
+    </test>
+       <!--  
+    <test name="Dropbox drive Operatins" parallel="true">
+        <parameter name="browser" value="*chrome" />
+        	<parameter name="saasApp" value="DROPBOX"/>
+        <groups>
+            <run>
+                <include name="oneDrive" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.elastica.tests.DropboxDriveOperations" />
+        </classes>
+    </test>
+    
+    <test name="Google drive Operatins" parallel="true">
+        <parameter name="browser" value="*chrome" />
+        	<parameter name="saasApp" value="GDRIVE"/>
+        <groups>
+            <run>
+                <include name="oneDrive" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.elastica.tests.GoogleDriveOperations" />
+        </classes>
+    </test>
+ -->
+   
+
+</suite> 

@@ -1,0 +1,2 @@
+TestEntity.TestCaseId,TestEntity.TestMethod,TestEntity.TestTitle,User.UserID,User.Password
+testcaseid2,loginAsValidUser,loginAsValidUser,admin,admin
