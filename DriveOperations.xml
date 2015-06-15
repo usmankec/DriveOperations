@@ -35,7 +35,7 @@
 	<parameter name="webDriverGrid" value="http://localhost:4444/wd/hub" />
 	<!-- <parameter name="platform" value="VISTA" />
 	<parameter name="browserVersion" value="41.0" /> -->
-	<!-- <parameter name="webDriverGrid" value="http://usmankec:04128b85-c2d9-4d5e-bf2a-2d223cc56c38@ondemand.saucelabs.com:80/wd/hub" /> -->
+	<!-- <parameter name="webDriverGrid" value="http://@ondemand.saucelabs.com:80/wd/hub" /> -->
 	<parameter name="webSessionTimeOut" value="120000" />
 	<parameter name="openReportInBrowser" value="*firefox" />
 	<parameter name="maxConcurrentWebSessions" value="5" />
