@@ -196,16 +196,8 @@ public class BoxDriveAction extends BasePage implements DriveLogin, BoxDrive {
 	
 	
 	public int uploadFileAutoIT(String fileName) {
-
 			int countBefore = getFileList();
 			fileUplaod(fileName);
-			//driver.navigate().refresh();
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			uploadButtonPopup.click();
 			int countAfter = getFileList();
 			return countAfter-countBefore;
