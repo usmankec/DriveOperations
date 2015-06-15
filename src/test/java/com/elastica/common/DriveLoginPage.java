@@ -1,6 +1,10 @@
 
 package com.elastica.common;
 
+import org.apache.log4j.Logger;
+
+import com.elastica.actions.DropboxDriveAction;
+import com.elastica.core.TestLogging;
 import com.elastica.dataobject.User;
 import com.elastica.webelements.PageObject;
 import com.elastica.webpage.DriveLogin;
@@ -8,7 +12,7 @@ import com.elastica.webpage.DriveLogin;
 
 
 public class DriveLoginPage extends PageObject implements DriveLogin{
-	
+	private static final Logger logger = TestLogging.getLogger(DriveLoginPage.class);
 	//DriveAction driveAction  = new DriveAction();
 	
     public DriveLoginPage() throws Exception {
@@ -25,7 +29,7 @@ public class DriveLoginPage extends PageObject implements DriveLogin{
     		Thread.sleep(5000);
     	switch (DriveLoginHelper.driveTypeThis){
     	case ONEDRIVE:
-			   System.out.println("One Drive Selected");
+			   logger.info("One Drive Selected");
 			   oneDriveUserNameTextBox.clear();
 			   oneDriveUserNameTextBox.sendKeys(user.getUserID());
 			   oneDrivePasswordTextBox.clear();
@@ -34,7 +38,7 @@ public class DriveLoginPage extends PageObject implements DriveLogin{
 			   
 			   break;
 		case BOX:
-		      System.out.println("Box Drive Selected");
+		      logger.info("Box Drive Selected");
 		      boxUserNameTextBox.clear();
 			  boxUserNameTextBox.sendKeys(user.getUserID());
 			  boxPasswordTextBox.clear();
@@ -43,20 +47,20 @@ public class DriveLoginPage extends PageObject implements DriveLogin{
 		break;
 				
 		case DROPBOX:
-		      System.out.println("Drop box Drive Selected");
+		      logger.info("Drop box Drive Selected");
 		      dropboxUserNameTextBox.clear();
 			  dropboxUserNameTextBox.sendKeys(user.getUserID());
 			  dropboxPasswordTextBox.clear();
 			  dropboxPasswordTextBox.sendKeys(user.getPassword());
 			  dropboxLoginButton.click();
 		      Thread.sleep(8000);
-		      System.out.println("login Title: "+driver.getTitle());
+		      logger.info("login Title: "+driver.getTitle());
 		      driver.get("https://www.dropbox.com/logout");
-		      System.out.println("logout title: "+driver.getTitle());
+		      logger.info("logout title: "+driver.getTitle());
 			break;
 			
 		case GDRIVE:
-		      System.out.println("G Drive Selected");
+		      logger.info("G Drive Selected");
 		      gDriveUserNameTextBox.clear();
 			  gDriveUserNameTextBox.sendKeys(user.getUserID());
 			  gDrivePasswordTextBox.clear();

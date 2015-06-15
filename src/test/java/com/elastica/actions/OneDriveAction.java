@@ -15,7 +15,7 @@ import com.elastica.webpage.DriveLogin;
 import com.elastica.webpage.OneDrive;
 
 
-public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
+public class OneDriveAction extends BasePage implements OneDrive {
 	private static final Logger logger = TestLogging.getLogger(OneDriveAction.class);
 	public static FileType fileType;
 	public static String driveName=null;
@@ -23,27 +23,27 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	
 	 public void clickUplaodLink(){
 		 uploadLink.click();
-		 System.out.println(uploadFileLink.isDisplayed());
-		 System.out.println(uploadFileLink.isElementPresent());
+		 logger.info(uploadFileLink.isDisplayed());
+		 logger.info(uploadFileLink.isElementPresent());
 		 uploadFileLink.click();
 	 }
 	 
 	 public void clickManageLink(){
-		 System.out.println(manageLink.isDisplayed());
-		 System.out.println(manageLink.isElementPresent());
+		 logger.info(manageLink.isDisplayed());
+		 logger.info(manageLink.isElementPresent());
 		 manageLink.click();
 	 }
 	 
 	 public void clickCreateLink(){
-		 System.out.println(createLink.isDisplayed());
-		 System.out.println(createLink.isElementPresent());
+		 logger.info(createLink.isDisplayed());
+		 logger.info(createLink.isElementPresent());
 		 createLink.click();
 	 }
 	 
 	 
 	 public void clickCreateFolderLink(){
-		 System.out.println(createFolderLink.isDisplayed());
-		 System.out.println(createFolderLink.isElementPresent());
+		 logger.info(createFolderLink.isDisplayed());
+		 logger.info(createFolderLink.isElementPresent());
 		 createFolderLink.click();
 	 }
 	 
@@ -51,27 +51,27 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 		 fileType=DriveConstants.FileType.valueOf(fileTypeLocal);
 		 switch(fileType){
 		 case TXTFILE:
-			 System.out.println(createTextFileLink.isDisplayed());
+			 logger.info(createTextFileLink.isDisplayed());
 			 createTextFileLink.click();
 			 break;
 		 case WORDFILE:
-			 System.out.println(createWordFileLink.isDisplayed());
+			 logger.info(createWordFileLink.isDisplayed());
 			 createWordFileLink.click();
 			 break;
 		 case PPTFILE:
-			 System.out.println(createPptFileLink.isDisplayed());
+			 logger.info(createPptFileLink.isDisplayed());
 			 createPptFileLink.click();
 			 break;
 		 case EXLFILE:
-			 System.out.println(createExlFileLink.isDisplayed());
+			 logger.info(createExlFileLink.isDisplayed());
 			 createExlFileLink.click();
 			 break;
 		 case ONENOTE:
-			 System.out.println(createOnenoteFileLink.isDisplayed());
+			 logger.info(createOnenoteFileLink.isDisplayed());
 			 createOnenoteFileLink.click();
 			 break;
 		 case EXLSURVEY:
-			 System.out.println(createExlSurveyFileLink.isDisplayed());
+			 logger.info(createExlSurveyFileLink.isDisplayed());
 			 createExlSurveyFileLink.click();
 			 break;
 		 }
@@ -80,29 +80,29 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	 
 	 
 	 public void typeInNewlyCreatedFile(String content){
-		 System.out.println(createTextFileLink.isDisplayed());
-		 System.out.println(createTextFileLink.isElementPresent());
+		 logger.info(createTextFileLink.isDisplayed());
+		 logger.info(createTextFileLink.isElementPresent());
 		 createTextFileLink.click();
 	 }
 	 
 	 
 	 
 	 public  void typeInFolderNameTextbox(String folderName){
-	    	System.out.println("email field: "+typeInFolderNameTextbox.isDisplayed());
-	    	System.out.println("email field: "+typeInFolderNameTextbox.isDisplayed());
+	    	logger.info("email field: "+typeInFolderNameTextbox.isDisplayed());
+	    	logger.info("email field: "+typeInFolderNameTextbox.isDisplayed());
 	    	typeInFolderNameTextbox.type(folderName);
 	    	
 	    }
 	 
 	 public void clickCreateFolderButton(){
-		 System.out.println(createFolderButton.isDisplayed());
-		 System.out.println(createFolderButton.isElementPresent());
+		 logger.info(createFolderButton.isDisplayed());
+		 logger.info(createFolderButton.isElementPresent());
 		 createFolderButton.click();
 	 }
 	 
 	 public void clickDeleteLink(){
-		 System.out.println(delete.isDisplayed());
-		 System.out.println(delete.isElementPresent());
+		 logger.info(delete.isDisplayed());
+		 logger.info(delete.isElementPresent());
 		 delete.click();
 	 }
 	 
@@ -110,31 +110,31 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	 
 	 public void clickFolderUplaodLink(){
 		 uploadLink.click();
-		 System.out.println(uploadFileLink.isDisplayed());
-		 System.out.println(uploadFileLink.isElementPresent());
+		 logger.info(uploadFileLink.isDisplayed());
+		 logger.info(uploadFileLink.isElementPresent());
 		 //uploadFileLink.click();
 	 }
 	 
 	
 	 
 	 public void clickFileCheckbox(int index){
-	    	System.out.println("Checkbox: "+fileSelectionCheckboxList.isDisplayed());
-	    	System.out.println("Checkbox: "+fileSelectionCheckboxList.getAllElements().get(index).isDisplayed());
+	    	logger.info("Checkbox: "+fileSelectionCheckboxList.isDisplayed());
+	    	logger.info("Checkbox: "+fileSelectionCheckboxList.getAllElements().get(index).isDisplayed());
 	    	fileSelectionCheckboxList.getAllElements().get(index).click();
 	    	
 	    }
 	 
 	 public void clickSherLink(){
-	    	System.out.println("share link: "+shareLink.isDisplayed());
-	    	System.out.println("share link: "+shareLink.isDisplayed());
+	    	logger.info("share link: "+shareLink.isDisplayed());
+	    	logger.info("share link: "+shareLink.isDisplayed());
 	    	shareLink.click();
 	    	
 	    }
 	 
 	 
 	 public void clickCloseButton(){
-	    	System.out.println("close button: "+closeButton.isDisplayed());
-	    	System.out.println("close button: "+closeButton.isDisplayed());
+	    	logger.info("close button: "+closeButton.isDisplayed());
+	    	logger.info("close button: "+closeButton.isDisplayed());
 	    	closeButton.click();
 	    	
 	    }
@@ -142,23 +142,23 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	 
 	 
 	 public void clickShareButton(){
-	    	System.out.println("share button: "+shareButton.isDisplayed());
-	    	System.out.println("share button: "+shareButton.isDisplayed());
+	    	logger.info("share button: "+shareButton.isDisplayed());
+	    	logger.info("share button: "+shareButton.isDisplayed());
 	    	shareButton.click();
 	    	
 	    }
 	 
 	 
 	 public void typeInEmailTo(String email){
-	    	System.out.println("email field: "+emailToShareTextBox.isDisplayed());
-	    	System.out.println("email field: "+emailToShareTextBox.isDisplayed());
+	    	logger.info("email field: "+emailToShareTextBox.isDisplayed());
+	    	logger.info("email field: "+emailToShareTextBox.isDisplayed());
 	    	emailToShareTextBox.type(email);
 	    	
 	    }
 	 
 	 public void typeInQuickNote(String msg){
-	    	System.out.println("quick note: "+quickNoteTextBox.isDisplayed());
-	    	System.out.println("quick note: "+quickNoteTextBox.isDisplayed());
+	    	logger.info("quick note: "+quickNoteTextBox.isDisplayed());
+	    	logger.info("quick note: "+quickNoteTextBox.isDisplayed());
 	    	quickNoteTextBox.type(msg);
 	    	
 	    }
@@ -166,22 +166,22 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	 
 	 
 	 public void getListFiles(){
-	    	System.out.println("Row: "+fileFolder.getRowCount());
+	    	logger.info("Row: "+fileFolder.getRowCount());
 	    	
 	    }
 	 
 	 public void getFolderList(){
-		 System.out.println("Folder: "+folder.getAllElements().size()/2); 
+		 logger.info("Folder: "+folder.getAllElements().size()/2); 
 	 }
 	 
 	 public int getFileList(){
 		 int fileCount=file.getAllElements().size();
-		 System.out.println("Files: "+fileCount); 
+		 logger.info("Files: "+fileCount); 
 		 return fileCount;
 	 }
 	 
 	 public void getAllResourceListSize(){
-		 System.out.println("All resource list: "+(resourceList.getAllElements().size()-2)); 
+		 logger.info("All resource list: "+(resourceList.getAllElements().size()-2)); 
 	 }
 
 	 public void logout(){
@@ -230,11 +230,11 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 					
 					else if (getDriver() instanceof SafariDriver){
 						 exeLocation	= new File(DriveConstants.AUTO_IT_EXE_PATH_SAFARI);
-						 System.out.println("exeLocation "+exeLocation);
+						 logger.info("exeLocation "+exeLocation);
 					}
 					else if (driver instanceof FirefoxDriver){
 						 exeLocation	= new File(DriveConstants.AUTO_IT_EXE_PATH);
-						 System.out.println("exeLocation "+exeLocation);
+						 logger.info("exeLocation "+exeLocation);
 					}*/
 					//File exeLocation	= new File(AssignmentsConstants.AUTO_IT_EXE_PATH);
 					String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");
@@ -242,10 +242,10 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 					String args[]   = 	new String[2];
 					args[0] 		= 	exeAbsolutePath;
 					args[1]			=	absolutePath;
-					System.out.println(args[0]);
-					System.out.println(args[1]);
+					logger.info(args[0]);
+					logger.info(args[1]);
 					Runtime run = Runtime.getRuntime();
-					System.out.println("Before file executed");
+					logger.info("Before file executed");
 					
 						run.exec(args);
 						Thread.sleep(20000);
@@ -256,7 +256,7 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					System.out.println("After file executed");
+					logger.info("After file executed");
 					
 	}
 			
