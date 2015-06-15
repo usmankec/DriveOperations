@@ -80,11 +80,11 @@ public abstract class SeleniumTestPlan {
     	testConfig.put("browser",testContex.getCurrentXmlTest().getParameter("browser") );
       //	testConfig.put("browser",testContex.getCurrentXmlTest().getParameter("browser") );
       	
-    	System.out.println("Map: "+testConfig.get("browser"));
+    	/*System.out.println("Map: "+testConfig.get("browser"));
     	System.out.println(testContex.getCurrentXmlTest().getAllParameters());
-    	System.out.println(testContex.getCurrentXmlTest().getParameter("browser"));
-    	user.setUserID("elastictest@hotmail.com");
-    	user.setPassword("Test12!@");
+    	System.out.println(testContex.getCurrentXmlTest().getParameter("browser"));*/
+    	user.setUserID("@hotmail.com");
+    	user.setPassword("******");
     	System.out.println("Insdie before method");
         logger.info(Thread.currentThread() + " Start method " + method.getName());
         SeleniumTestsContextManager.initThreadContext(testContex, xmlTest);
