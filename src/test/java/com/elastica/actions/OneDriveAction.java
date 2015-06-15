@@ -21,15 +21,6 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	public static String driveName=null;
 	
 	
-	/*public void driveLogin(User user) throws Exception{
-		 driveName=SeleniumTestsContextManager.getThreadContext().getSaasApp();
-		 logger.info("Saas App: "+driveName);
-		 DriveLoginPage	driveLoginPage= new DriveLoginPage(driveName);
-		 driveLoginPage.loginToDrive(user);
-	    	Thread.sleep(8000);
-	    }*/
-	
-	
 	 public void clickUplaodLink(){
 		 uploadLink.click();
 		 System.out.println(uploadFileLink.isDisplayed());
@@ -207,7 +198,6 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	
 	
 	public int uploadFileAutoIT(String fileName) {
-
 			int countBefore = getFileList();
 			fileUplaod(fileName);
 			//driver.navigate().refresh();
@@ -224,7 +214,6 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 	
 	
 	public void fileUplaod(String fileName){
-		
 		try {
 					File fileLocation   =	new File(DriveConstants.ASSIGNMENT_FILES_PATH);
 
@@ -269,7 +258,6 @@ public class OneDriveAction extends BasePage implements DriveLogin, OneDrive {
 					}
 					System.out.println("After file executed");
 					
-				
 	}
 			
 	
