@@ -21,9 +21,10 @@ public class BoxDriveAction extends BasePage implements BoxDrive {
 	
 	public void clickUplaodLink(){
 		 uploadLink.click();
-		 logger.info(uploadFileLink.isDisplayed());
-		 logger.info(uploadFileLink.isElementPresent());
+		// logger.info(uploadFileLink.isDisplayed());
+		// logger.info(uploadFileLink.isElementPresent());
 		 uploadFileLink.click();
+		 
 	 }
 	 
 	/* public void clickManageLink(){
@@ -241,7 +242,7 @@ public class BoxDriveAction extends BasePage implements BoxDrive {
 					logger.info("Before file executed");
 					
 						run.exec(args);
-						Thread.sleep(20000);
+						Thread.sleep(15000);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

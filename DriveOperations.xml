@@ -57,7 +57,7 @@
         </classes>
     </test> -->
 
-     <test name="Box drive Operatins" parallel="true">
+     <test name="Box drive Operatins" parallel="false">
         <parameter name="browser" value="*chrome" />
         	<parameter name="saasApp" value="BOX"/>
         <groups>

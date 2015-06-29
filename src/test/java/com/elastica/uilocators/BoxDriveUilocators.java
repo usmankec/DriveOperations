@@ -4,7 +4,7 @@ package com.elastica.uilocators;
 public class BoxDriveUilocators {
 
 	public static final String uploadLink = "#upload_button";
-    public static final String uploadFileLink = ".ui-menu li:nth-child(1) a";
+    public static final String uploadFileLink = "ui-id-2";//".ui-menu li:nth-child(1) a";
     public static final String uploadButtonPopup = "#popup_upload_button";
     public static final String fileSelectionCheckboxList = ".centerColumn .fillTable>table>tbody .file .selectArea";
     public static final String shareLink = "Share";

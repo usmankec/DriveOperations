@@ -13,14 +13,27 @@
 
 package com.elastica.tests;
 
+import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+
+import jxl.Sheet;
+
 import org.apache.log4j.Logger;
+import org.testng.ITestContext;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.elastica.actions.BoxDriveAction;
 import com.elastica.actions.DriveLoginAction;
+import com.elastica.core.Filter;
 import com.elastica.core.SeleniumTestPlan;
 import com.elastica.core.TestLogging;
+import com.elastica.dataobject.User;
 import com.elastica.listeners.Priority;
+import com.elastica.util.SpreadSheetHelper;
+import com.elastica.util.internal.entity.TestEntity;
+import com.elastica.utils.ReadExcel;
 
 
 public class BoxDriveOperations extends SeleniumTestPlan {
@@ -28,24 +41,74 @@ public class BoxDriveOperations extends SeleniumTestPlan {
 	DriveLoginAction driveLoginAction= new DriveLoginAction();
 	
 	/* @Priority(1)
-	    @Test(groups = {"oneDrive"})
-	    public void loginToDrive() throws Exception {
+	    @Test(dataProvider="loginData",groups = {"oneDrive"})
+	    public void loginToDrive(final TestEntity testEntity, final User user) throws Exception {
 	    	logger.info("Loging to One Drive Saas App");
+	    	System.out.println(testEntity.getTestMethod());
+	    	System.out.println(user.getUserID());
 	    	driveLoginAction.driveLogin(user);
-	    }*/
+	    	//test();
+	    	
+	    	
+	    }
+    */
+	 
+	  @DataProvider(name = "loginData", parallel = false)
+	    public static Iterator<Object[]> getUserInfo(final Method m, final ITestContext testContext) throws Exception {
+	        Filter filter = Filter.equalsIgnoreCase(TestEntity.TEST_METHOD, m.getName());
+
+	        System.out.println("Method: "+m.getName());
+	        LinkedHashMap<String, Class<?>> classMap = new LinkedHashMap<String, Class<?>>();
+	        classMap.put("TestEntity", TestEntity.class);
+	        classMap.put("User", User.class);
+
+	        return SpreadSheetHelper.getEntitiesFromSpreadsheet(OneDriveOperations.class, classMap, "loginuser.csv", 0, null,
+	                filter);
+	    }
+	    
+	
+	    
+	    @Priority(2)
+	    @Test(groups = {"oneDrive"})
+	    public void uploadFile(final Method m, final ITestContext testContext) throws Exception {
+	    	logger.info("Uploading a file to Saas App");
+	    	ReadExcel rexel= new ReadExcel();
+	    	Sheet sheet=rexel.getSheet("D:\\testdata\\datafile.xls");
+	    	int rowCount=rexel.getRowCount(sheet);
+	    		    	
+	    	BoxDriveAction boxDriveAction= new BoxDriveAction();
+	    	driveLoginAction.driveLogin(user);
+	    	Runtime run = Runtime.getRuntime();
+	    	run.exec("D:\\testdata\\mousemove.exe");
+	    	for (int i=1; i<rowCount; i++){
+	    	boxDriveAction.clickUplaodLink();
+	    	boxDriveAction.uploadFileAutoIT(rexel.readRowData(sheet,i).get("Filename")+"."+rexel.readRowData(sheet,i).get("Filetype"));
+	    	Thread.sleep(8000);
+	    	}
+	    	
+	    }
     
-    
-    @Priority(2)
+    /*@Priority(2)
     @Test(groups = {"oneDrive"})
     public void uploadFile() throws Exception {
     	logger.info("Uploading a file to Saas App");
     	BoxDriveAction boxDriveAction= new BoxDriveAction();
     	driveLoginAction.driveLogin(user);
+    	
     	boxDriveAction.clickUplaodLink();
     	boxDriveAction.uploadFileAutoIT("Test.docx");
     	Thread.sleep(5000);
+    	driveLoginAction.testPortalLogin(user);
+    	Thread.sleep(5000);
+    	driveLoginAction.reloadDrive();
+     	Thread.sleep(5000);
+     	boxDriveAction.clickUplaodLink();
+    	boxDriveAction.uploadFileAutoIT("Test.docx");
+    	driveLoginAction.reloadTestPortal();
+    	Thread.sleep(5000);
+    	driveLoginAction.reloadDrive();
     	
-    }
+    }*/
     
   /* 
     @Priority(3)
@@ -235,17 +298,6 @@ public class BoxDriveOperations extends SeleniumTestPlan {
     */
     
     
-    /* @DataProvider(name = "loginData", parallel = true)
-    public static Iterator<Object[]> getUserInfo(final Method m, final ITestContext testContext) throws Exception {
-        Filter filter = Filter.equalsIgnoreCase(TestEntity.TEST_METHOD, m.getName());
-
-        LinkedHashMap<String, Class<?>> classMap = new LinkedHashMap<String, Class<?>>();
-        classMap.put("TestEntity", TestEntity.class);
-        classMap.put("User", User.class);
-
-        return SpreadSheetHelper.getEntitiesFromSpreadsheet(OneDriveOperations.class, classMap, "loginuser.csv", 0, null,
-                filter);
-    }*/
-    
+   
   
 }

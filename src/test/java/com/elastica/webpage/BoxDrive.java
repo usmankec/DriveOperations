@@ -3,16 +3,14 @@ package com.elastica.webpage;
 import org.openqa.selenium.By;
 
 import com.elastica.uilocators.BoxDriveUilocators;
-import com.elastica.webelements.ButtonElement;
 import com.elastica.webelements.HtmlElement;
 import com.elastica.webelements.LinkElement;
 import com.elastica.webelements.Table;
-import com.elastica.webelements.TextFieldElement;
 
 public interface BoxDrive {
 	
 		public static final LinkElement uploadLink = new LinkElement("Login Text Box", By.cssSelector(BoxDriveUilocators.uploadLink));
-	    public static final LinkElement uploadFileLink = new LinkElement("Login Text Box", By.cssSelector(BoxDriveUilocators.uploadFileLink));
+	    public static final HtmlElement uploadFileLink = new HtmlElement("Login Text Box", By.id(BoxDriveUilocators.uploadFileLink));
 	    public static final LinkElement uploadButtonPopup = new LinkElement("Login Text Box", By.cssSelector(BoxDriveUilocators.uploadButtonPopup));
 	    
 	    
